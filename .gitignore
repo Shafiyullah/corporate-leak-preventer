@@ -6,7 +6,7 @@ env/
 __pycache__/
 ./__pycache__
 *.pyc
-.egg-info
+.egg-info/
 
 # Environment variables (Keep your API keys secret!)
 .env
