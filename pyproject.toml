@@ -14,6 +14,7 @@ version = "0.1.0"
 description = "Pii Redactor environment for OpenEnv"
 requires-python = ">=3.10"
 dependencies = [
+    "huggingface-hub>=1.9.2",
     "openai>=2.30.0",
     # Core OpenEnv runtime (provides FastAPI server + HTTP client types)
     # install from github
