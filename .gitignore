@@ -1,12 +1,9 @@
-# Virtual Environment
 venv/
-env/
-
-# Python Cache
+.venv/
 __pycache__/
-./__pycache__
+.uv/
+.git/
 *.pyc
-.egg-info/
-
-# Environment variables (Keep your API keys secret!)
 .env
+env
+.egg-info/

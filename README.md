@@ -1,3 +1,12 @@
+---
+title: PII Redactor
+emoji: 🛡️
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+pinned: false
+---
+
 # Corporate Leak Preventer (OpenEnv)
 
 ## 🎯 Description and Motivation

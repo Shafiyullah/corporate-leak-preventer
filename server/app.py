@@ -16,7 +16,7 @@ except Exception as e:  # pragma: no cover
     ) from e
 
 try:
-    from ..models import PiiRedactorAction, PiiRedactorObservation
+    from models import PiiRedactorAction, PiiRedactorObservation
     from .pii_redactor_environment import PiiRedactorEnvironment
 except ModuleNotFoundError:
     from models import PiiRedactorAction, PiiRedactorObservation
