@@ -6,11 +6,11 @@
 
 """Pii Redactor Environment."""
 
-from .client import PiiRedactorEnv
+from .client import PiiRedactorEnvClient
 from .models import PiiRedactorAction, PiiRedactorObservation
 
 __all__ = [
     "PiiRedactorAction",
     "PiiRedactorObservation",
-    "PiiRedactorEnv",
+    "PiiRedactorEnvClient",
 ]

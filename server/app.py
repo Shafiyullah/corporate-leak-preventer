@@ -15,13 +15,8 @@ except Exception as e:  # pragma: no cover
         "openenv is required for the web interface. Install dependencies with '\n    uv sync\n'"
     ) from e
 
-try:
-    from models import PiiRedactorAction, PiiRedactorObservation
-    from .pii_redactor_environment import PiiRedactorEnvironment
-except ModuleNotFoundError:
-    from models import PiiRedactorAction, PiiRedactorObservation
-    from server.pii_redactor_environment import PiiRedactorEnvironment
-
+from pii_redactor.models import PiiRedactorAction, PiiRedactorObservation
+from pii_redactor.server.pii_redactor_environment import PiiRedactorEnvironment
 
 # Create the app with web interface and README integration
 app = create_app(
@@ -33,9 +28,11 @@ app = create_app(
 )
 
 
-def main(host: str = "0.0.0.0", port: int = 8000):
+def main():
+    import os
     import uvicorn
-    uvicorn.run(app, host=host, port=port)
+    port = int(os.environ.get("PORT", 7860)) # Use HF's port if available, else 7860
+    uvicorn.run(app, host="0.0.0.0", port=port)
 
 
 if __name__ == "__main__":
