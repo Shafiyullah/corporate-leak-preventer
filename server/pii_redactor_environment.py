@@ -128,8 +128,12 @@ class PiiRedactorEnvironment(Environment):
                 break
                 
         if pii_hidden and context_kept:
-            reward = 1.0
-            feedback_msg = "Perfect redaction. Leak prevented."
+            if "[REDACTED]" in agent_text:
+                reward = 1.0
+                feedback_msg = "Perfect redaction. Leak prevented."
+            else:
+                reward = 0.5
+                feedback_msg = "Data hidden and context kept, but failed to use [REDACTED] tag."
         elif pii_hidden and not context_kept:
             reward = 0.2 
             feedback_msg = "Data hidden, but surrounding PR context was destroyed."
