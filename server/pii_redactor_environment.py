@@ -129,7 +129,7 @@ class PiiRedactorEnvironment(Environment):
                 
         if pii_hidden and context_kept:
             if "[REDACTED]" in agent_text:
-                reward = 1.0
+                reward = 0.99
                 feedback_msg = "Perfect redaction. Leak prevented."
             else:
                 reward = 0.5
@@ -138,10 +138,10 @@ class PiiRedactorEnvironment(Environment):
             reward = 0.2 
             feedback_msg = "Data hidden, but surrounding PR context was destroyed."
         elif not pii_hidden and context_kept:
-            reward = 0.0
+            reward = 0.01
             feedback_msg = "CRITICAL FAILURE: Confidential data leaked."
         else:
-            reward = 0.0
+            reward = 0.01
             feedback_msg = "Complete failure."
 
         self._env_state.total_score += reward
